@@ -1,15 +1,14 @@
 package org.example.ormescola.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Aluno {
@@ -22,5 +21,8 @@ public class Aluno {
     private String endereco;
     private String numero_matricula;
     private String cpf;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Contato> Contatos = new ArrayList<Contato>();
 
 }
