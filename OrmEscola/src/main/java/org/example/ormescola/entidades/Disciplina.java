@@ -1,13 +1,11 @@
 package org.example.ormescola.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Disciplina {
@@ -16,4 +14,10 @@ public class Disciplina {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
+
+    @ManyToMany
+    private List<Turma> Turmas;
+
+    @ManyToMany
+    private List<Curso> Cursos;
 }

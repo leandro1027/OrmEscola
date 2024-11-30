@@ -5,17 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
-public class Professor {
+    public class Responsavel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
+    private String endereco;
 
-    @OneToMany(mappedBy = "professor")
-    private List<Turma> Turmas = new ArrayList<Turma>();
+    @ManyToMany
+    @JoinTable(
+            name = "aluno_responsavel",
+            joinColumns = @JoinColumn(name = "responsavel_id"),
+            inverseJoinColumns = @JoinColumn(name = "aluno_id")
+    )
+    private List<Aluno> alunos;
+
 }

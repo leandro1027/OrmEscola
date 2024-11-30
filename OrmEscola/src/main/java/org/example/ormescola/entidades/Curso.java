@@ -1,13 +1,11 @@
 package org.example.ormescola.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Curso {
@@ -17,6 +15,14 @@ public class Curso {
     private int id;
     private String nome;
     private String coordenador;
+
+    @ManyToMany
+    @JoinTable(
+            name = "Curso_disciplina",
+            joinColumns = @JoinColumn(name = "curso_id"),
+            inverseJoinColumns = @JoinColumn(name = "disciplina_id")
+    )
+    private List<Disciplina> disciplinas;
 
 
 }

@@ -5,6 +5,4 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DisciplinaRepo extends CrudRepository<Disciplina, Long> {
-
-}
+public interface DisciplinaRepo extends CrudRepository<Disciplina, Long> { }
