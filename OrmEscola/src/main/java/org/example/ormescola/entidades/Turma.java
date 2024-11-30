@@ -34,6 +34,6 @@ public class Turma {
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private Aluno aluno;
+    private Professor professor;
 
 }

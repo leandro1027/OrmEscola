@@ -1,10 +1,8 @@
 package org.example.ormescola.entidades;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Usuario {
